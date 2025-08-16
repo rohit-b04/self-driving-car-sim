@@ -5,7 +5,7 @@ class Controls {
         this.right = false;
         this.reverse = false;
 
-        this.#addKeyboardListeners();
+        this.#addKeyboardListeners(); // using # specifies that the listener can only be accessed by the class itself. Meaning it is private
     }
     #addKeyboardListeners() {
         document.onkeydown=(event) => {
@@ -24,7 +24,7 @@ class Controls {
                     break;
                 
             }
-            console.table(this);
+            //console.table(this);
         }
         document.onkeyup=(event) => {
             switch(event.key) {
