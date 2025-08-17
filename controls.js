@@ -1,11 +1,19 @@
 class Controls {
-    constructor () {
+    constructor (type) {
         this.forward = false;
         this.left = false;
         this.right = false;
         this.reverse = false;
 
-        this.#addKeyboardListeners(); // using # specifies that the listener can only be accessed by the class itself. Meaning it is private
+        switch(type) {
+            case "KEYS":
+                this.#addKeyboardListeners();
+                break;
+            case "DUMMY":
+                this.forward = true;
+                break;
+        }
+       // using # specifies that the listener can only be accessed by the class itself. Meaning it is private
     }
     #addKeyboardListeners() {
         document.onkeydown=(event) => {
