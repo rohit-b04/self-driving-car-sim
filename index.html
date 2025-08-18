@@ -4,12 +4,12 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <canvas id="carCanvas">
-
-    </canvas>
-    <canvas id="networkCanvas">
-
-    </canvas>
+    <canvas id="carCanvas"></canvas>
+    <div id="verticalButtons">
+        <button onclick="save()"><img src="save.svg" alt="save button"></button>
+        <button onclick="discard()"><img src="discard.svg" alt="discard button"></button>
+    </div>
+    <canvas id="networkCanvas"></canvas>
     <script src="visualizer.js"></script>
     <script src="network.js"></script>
     <script src="utils.js"></script>
