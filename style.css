@@ -6,6 +6,11 @@ body {
 
 }
 
-#myCanvas {
+
+#networkCanvas {
+    background: black;
+}
+
+#carCanvas {
     background: lightgrey;
 }
