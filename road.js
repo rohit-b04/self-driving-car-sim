@@ -1,5 +1,6 @@
 class Road {
     constructor (x, width, laneCount = 3) {
+        // x is the canvas center and w: is the width
         this.x = x;
         this.width = width;
         this.laneCount = laneCount;
@@ -7,9 +8,9 @@ class Road {
         this.left = x - width/2;
         this.right = x + width/2;
 
-        const infinity = 10000000;
+        const infinity = 10000000; 
         this.top = -infinity;
-        this.bottom = infinity;
+        this.bottom = infinity; // Choosing the huge finite values like -1e7 and +1e7 fakes infinity
 
         const topLeft = {x: this.left, y: this.top}
         const topRight = {x: this.right, y: this.top}
@@ -17,8 +18,8 @@ class Road {
         const bottomRight = {x: this.right, y: this.bottom}
 
         this.borders = [
-            [topLeft, bottomLeft],
-            [topRight, bottomRight]
+            [topLeft, bottomLeft],// Border from very negative left top to very positive left bottom
+            [topRight, bottomRight]// Border from very negative right top to very positive right bottom
         ]
     }
 
@@ -35,14 +36,14 @@ class Road {
 
         for(let i=1;i<=this.laneCount - 1;i++) {
             const x = lerp(this.left, this.right, i/this.laneCount)
-            //console.log("looping")
 
-            ctx.setLineDash([20, 20]);
 
-            ctx.beginPath();
-            ctx.moveTo(x, this.top);
-            ctx.lineTo(x, this.bottom);
-            ctx.stroke();
+            ctx.setLineDash([20, 20]); // sets the dashed lines with length 20 and distance 20 between each line
+
+            ctx.beginPath(); // Begin the drawing path
+            ctx.moveTo(x, this.top);// Moving the pen(ink) to x, this.top i.e. -infinity
+            ctx.lineTo(x, this.bottom); // Draw a line to x, this.bottom ie. inifinity
+            ctx.stroke(); // Renders the path
         }
         ctx.setLineDash([]);
         this.borders.map(border=> {
@@ -50,7 +51,7 @@ class Road {
             ctx.moveTo(border[0].x, border[0].y)
             ctx.lineTo(border[1].x, border[1].y);
             ctx.stroke();
-        })
+        }) // Drawing the borders
         
         
     }

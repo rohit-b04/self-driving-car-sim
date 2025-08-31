@@ -10,16 +10,21 @@ class Sensor {
     }
     update(roadBorders, traffic) {
         this.#castRays();
+
         this.readings = [];
         for(let i = 0;i < this.rays.length;i++) {
-             this.readings.push(
-                this.#getReading(
-                    this.rays[i], 
-                    roadBorders,
-                    traffic
-                )
-             )
+            this.readings.push(
+            this.#getReading(
+                this.rays[i], 
+                roadBorders,
+                traffic
+            )
+            )
         }
+        //console.log(this.rays[0])
+        //const mid = this.#fitnessFunction(this.rays);
+        //console.log(mid)
+        //console.log(this.readings)
     }
 
     #getReading(ray, roadBorders, traffic) {
@@ -55,7 +60,7 @@ class Sensor {
             return touches.find(e=>e.offset==minOffset);
         }
     }
-
+    
     #castRays() {
         this.rays=[];
         

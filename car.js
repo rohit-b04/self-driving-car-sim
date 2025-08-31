@@ -7,7 +7,7 @@ class Car {
         this.controlType = controlType
 
         this.speed = 0;
-        this.acceleration = 0.2;
+        this.acceleration = 0.2; 
         this.maxSpeed = maxSpeed
         this.friction = 0.05;
         this.angle = 0;
@@ -62,8 +62,8 @@ class Car {
 
     #createPolygon() {
         const points=[];
-        const rad = Math.hypot(this.width, this.height)/2;
-        const alpha = Math.atan2(this.width, this.height)
+        const rad = Math.hypot(this.width, this.height)/2; // Calculates the radius
+        const alpha = Math.atan2(this.width, this.height); // Calculates the inverse tangent in four quadrants i.e. tan^-1
         points.push({
             x: this.x-Math.sin(this.angle-alpha)*rad,
             y:this.y-Math.cos(this.angle-alpha)*rad
@@ -85,10 +85,10 @@ class Car {
 
     #move() {
         if(this.controls.forward) {
-            this.speed += this.acceleration
+            this.speed += this.acceleration; // adds +0.2 everytime the fwd key pressed
         }
         if(this.controls.reverse) {
-            this.speed -= this.acceleration;
+            this.speed -= this.acceleration; // reduces accln by -0.2 everytime bkwd key pressed
         }
         
 
